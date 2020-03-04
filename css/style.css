@@ -20,11 +20,13 @@ font-family: 'roboto';
     font-size: 6em;
     font-weight: bold;
     color: white;
+    text-shadow: 2px 2px 5px #000000;
 }
 
 .sub-judul {
     font-size: 4em;
     color: red;
+    text-shadow: 1px 1px 5px #000000;
     text-decoration: none;
     font-weight: bold;
 }
