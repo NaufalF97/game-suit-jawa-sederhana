@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Suit Jawa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+    <div class="judul">
+        <h1>Selamat Datang di Game Suit Jawa!</h1>
+        <a href="#hasil" class="sub-judul">Uji Keberuntunganmu!</a>
+    </div>
+
+    <div class="game">
+        <label for="player">Isikan pilihanmu!</label>
+        
+        <input type="text" id="player" placeholder="gunting, batu, kertas">
+
+        <p class="refresh">Refresh, Lalu <button onclick = "game()" class="click">Click!</button> Untuk Bermain!</p>
+
+        <div class="container">
+            <div id="hasil">Arena Pertarungan</div>
+    
+            <ul>
+                <li class="comp-side">
+                    <p>Komputer</p>
+                    <img src="img/computer.png" class="komp" width="300px" height="300px" alt="">
+                </li>
+
+                <li class="player-side">
+                    <p>Anda</p>
+                    <img src="img/orang.jpg" class="orang" width="300px" height="300px" alt="">
+                </li>
+            </ul>
+        
+            <br>
+
+            <button id="lagi" onclick = "document.location.reload(true)">RESET</button>
+        </div>
+        
+    </div>
+
+    <script>
+            var hasil = document.getElementById("hasil");
+        // Menangkap pilihan player
+            var gp = document.getElementsByClassName("orang")[0];
+            var p = document.getElementById("player").value;
+        
+        function game() {
+            if (p == "gunting") {
+                gp.src="img/gunting.png";
+            }
+            else if (p == "batu") {
+                gp.src="img/batu.png";
+            }
+            else {
+                gp.src="img/kertas.png";
+            }
+        
+        // Menangkap pilihan komputer
+        // Membangkitkan bilangan random
+            var gambar = document.getElementsByClassName("komp")[0];
+            var comp = Math.random();
+
+            if (comp < 0.34) {
+                comp = "batu";
+                gambar.src="img/batu.png";
+            }
+            else if (comp >= 0.34 && comp < 0.67) {
+                comp = "gunting";
+                gambar.src="img/gunting.png";
+            }
+            else {
+                comp = "kertas";
+                gambar.src="img/kertas.png";
+            }
+
+
+        // Rules
+            if (p == comp) {
+                hasil.innerHTML = "Pertarungan SERI!";
+            }
+            else if (p == "batu") {
+                if (comp == "gunting") {
+                    hasil.innerHTML = "Anda MENANG!!";
+                }
+                else {
+                    hasil.innerHTML = "Anda KALAH!!";
+                }
+            }
+            else if (p == "gunting") {
+                if (comp == "kertas") {
+                    hasil.innerHTML = "Anda MENANG!!";
+                }
+                else {
+                    hasil.innerHTML = "Anda KALAH!!";
+                }
+            }
+            else if (p == "kertas") {
+                if (comp == "batu") {
+                    hasil.innerHTML = "Anda MENANG!!";
+                }
+                else {
+                    hasil.innerHTML = "Anda KALAH!!";
+                }
+            }
+            else {
+                alert("ISI YANG BENER WOI! (Sesuai opsi. Huruf kecil semua)");
+                gp.src = "img/tapi_boong.jpg";
+                gambar.src = "img/tapi_boong.jpg";
+            }
+        }
+
+        //Tampilkan hasilnya
+
+    </script>
+</body>
+</html>

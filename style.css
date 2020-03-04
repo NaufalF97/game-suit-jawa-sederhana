@@ -1,0 +1,132 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+background-color: aquamarine;
+font-family: 'roboto';
+}
+.judul {
+    background: url(img/background.png);
+    text-align: center;
+    margin-top: 0;
+    padding: 3%;
+}
+.judul h1{
+    font-size: 5em;
+    color: white;
+}
+
+.sub-judul {
+    font-size: 2.7em;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sub-judul:hover {
+    font-size: 3em;
+}
+
+.game {
+    text-align: left;
+    margin-top: 3%;
+    padding: 2%;
+}
+
+label {
+    font-size: 1.5em;
+    margin-bottom: 2%;
+    display: inline-block;
+}
+
+
+img {
+    text-align: center;
+    display: inline-block;
+    margin-left: 17%;
+}
+
+.komp {
+    margin-right: 5%;
+}
+
+.orang {
+    margin-left: 6%;
+}
+
+.vs {
+    font-size: 5em;
+    font-weight: bold;
+}
+
+#hasil {
+    margin-bottom: 1%;
+    margin-top: 3%;
+    text-align: center;
+    font-size: 3em;
+    color: red;
+    font-weight: bold;
+}
+
+#lagi {
+    margin-left: 42%;
+    margin-top: 2%;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 200px;
+    color: white;
+    background-color: black;
+}
+
+#lagi:hover {
+    font-size: 1.8em;
+    color: red;
+}
+
+.refresh {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: -1%;
+}
+
+.position {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.position p {
+    margin: 1% 10%;
+}
+
+li {
+    list-style: none;
+    float: left;
+    margin-left: 14%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: -2%;
+}
+
+.comp-side p {
+    text-align: center;
+    margin-left: 30%;
+    margin-bottom: 2%;
+}
+
+.player-side p {
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+.click {
+    font-size: 1em;
+    color:white;
+    background-color: black;
+    font-weight: bold;
+}
+
+.click:hover {
+    font-size: 1.2em;
+    color: red;
+}
