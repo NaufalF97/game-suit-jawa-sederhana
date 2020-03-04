@@ -48,10 +48,14 @@ img {
 
 .komp {
     margin-right: 5%;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .orang {
     margin-left: 6%;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .vs {
