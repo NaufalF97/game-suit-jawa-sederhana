@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,42 +9,44 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
+
 <body>
-    <div class="judul">
-        <h1>Selamat Datang di Game Suit Jawa!</h1>
-        <a href="#hasil" class="sub-judul">Uji Keberuntunganmu!</a>
-    </div>
+    <div class="wrap-section">
+        <div class="judul">
+            <h1>Selamat Datang di Game Suit Jawa!</h1>
+            <a href="#hasil" class="sub-judul">Uji Keberuntunganmu!</a>
+        </div>
 
-    <div class="game">
-        <label for="player">Isikan pilihanmu!</label>
-        
-        <input type="text" id="player" placeholder="gunting, batu, kertas">
+        <div class="game">
+            <label for="player">Isikan pilihanmu!</label>
 
-        <p class="refresh">Refresh, Lalu <button onclick = "game()" class="click">Click!</button> Untuk Bermain!</p>
+            <input type="text" id="player" placeholder="gunting, batu, kertas">
 
-        <div class="container">
-            <div id="hasil">Arena Pertarungan</div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="comp-side">
-                        <p>Komputer</p>
-                        <img src="img/computer.png" class="komp" alt="">
+            <p class="refresh">Refresh, Lalu <button onclick="game()" class="click">Click!</button> Untuk Bermain!</p>
+
+            <div class="container">
+                <div id="hasil">Arena Pertarungan</div>
+                <div class="row">
+                    <div class="col-md-4 col-xs 12">
+                        <div class="comp-side">
+                            <p>Komputer</p>
+                            <img src="img/computer.png" class="komp" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 hidden-sm hidden-xs">
+                        <div class="vs">
+                            <h2>VS</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 hidden-sm hidden-xs">
+                        <div class="player-side">
+                            <p>Anda</p>
+                            <img src="img/orang.jpg" class="orang" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="vs">
-                        <h2>VS</h2>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="player-side">
-                        <p>Anda</p>
-                        <img src="img/orang.jpg" class="orang" alt="">
-                    </div>
-                </div>
-            </div>
-    
-            <!-- <ul>
+
+                <!-- <ul>
                 <li class="comp-side">
                     <p>Komputer</p>
                     <img src="img/computer.png" class="komp" alt="">
@@ -54,80 +57,69 @@
                     <img src="img/orang.jpg" class="orang" alt="">
                 </li>
             </ul> -->
-        
-            <br>
 
-            <button id="lagi" onclick = "document.location.reload(true)">RESET</button>
+                <br>
+
+                <button id="lagi" onclick="document.location.reload(true)">RESET</button>
+            </div>
         </div>
-        
     </div>
 
     <script src="bootstrap.min.js"></script>
     <script>
-            var hasil = document.getElementById("hasil");
+        var hasil = document.getElementById("hasil");
         // Menangkap pilihan player
-            var gp = document.getElementsByClassName("orang")[0];
-            var p = document.getElementById("player").value;
-        
+        var gp = document.getElementsByClassName("orang")[0];
+        var p = document.getElementById("player").value;
+
         function game() {
             if (p == "gunting") {
-                gp.src="img/gunting.png";
+                gp.src = "img/gunting.png";
+            } else if (p == "batu") {
+                gp.src = "img/batu.png";
+            } else {
+                gp.src = "img/kertas.png";
             }
-            else if (p == "batu") {
-                gp.src="img/batu.png";
-            }
-            else {
-                gp.src="img/kertas.png";
-            }
-        
-        // Menangkap pilihan komputer
-        // Membangkitkan bilangan random
+
+            // Menangkap pilihan komputer
+            // Membangkitkan bilangan random
             var gambar = document.getElementsByClassName("komp")[0];
             var comp = Math.random();
 
             if (comp < 0.34) {
                 comp = "batu";
-                gambar.src="img/batu.png";
-            }
-            else if (comp >= 0.34 && comp < 0.67) {
+                gambar.src = "img/batu.png";
+            } else if (comp >= 0.34 && comp < 0.67) {
                 comp = "gunting";
-                gambar.src="img/gunting.png";
-            }
-            else {
+                gambar.src = "img/gunting.png";
+            } else {
                 comp = "kertas";
-                gambar.src="img/kertas.png";
+                gambar.src = "img/kertas.png";
             }
 
 
-        // Rules
+            // Rules
             if (p == comp) {
                 hasil.innerHTML = "Pertarungan SERI!";
-            }
-            else if (p == "batu") {
+            } else if (p == "batu") {
                 if (comp == "gunting") {
                     hasil.innerHTML = "Anda MENANG!!";
-                }
-                else {
+                } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            }
-            else if (p == "gunting") {
+            } else if (p == "gunting") {
                 if (comp == "kertas") {
                     hasil.innerHTML = "Anda MENANG!!";
-                }
-                else {
+                } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            }
-            else if (p == "kertas") {
+            } else if (p == "kertas") {
                 if (comp == "batu") {
                     hasil.innerHTML = "Anda MENANG!!";
-                }
-                else {
+                } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            }
-            else {
+            } else {
                 alert("ISI YANG BENER WOI! (Sesuai opsi. Huruf kecil semua)");
                 gp.src = "img/tapi_boong.jpg";
                 gambar.src = "img/tapi_boong.jpg";
@@ -135,7 +127,7 @@
         }
 
         //Tampilkan hasilnya
-
     </script>
 </body>
+
 </html>
