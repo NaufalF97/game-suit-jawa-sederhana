@@ -25,14 +25,11 @@
             </div>
 
             <div class="button-pilihan">
-                <button type="button" id="batu">Batu</button>
-                <button type="button" id="gunting">Gunting</button>
-                <button type="button" id="kertas">Kertas</button>
+                <button type="button" id="batu" class="tombol-pilih">Batu</button>
+                <button type="button" id="gunting" class="tombol-pilih">Gunting</button>
+                <button type="button" id="kertas" class="tombol-pilih">Kertas</button>
                 <button onclick="game()" class="click">Main!</button>
             </div>
-            <!-- <input type="text" id="player" placeholder="gunting, batu, kertas"> -->
-
-            
 
             <div class="container">
                 <div id="hasil">Arena Pertarungan</div>
@@ -55,19 +52,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <ul>
-                <li class="comp-side">
-                    <p>Komputer</p>
-                    <img src="img/computer.png" class="komp" alt="">
-                </li>
-
-                <li class="player-side">
-                    <p>Anda</p>
-                    <img src="img/orang.jpg" class="orang" alt="">
-                </li>
-            </ul> -->
-
                 <br>
 
                 <button id="lagi" onclick="document.location.reload(true)">RESET</button>
@@ -75,24 +59,40 @@
         </div>
     </div>
 
+    <script src="jquery-3.4.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script>
         var hasil = document.getElementById("hasil");
         // Menangkap pilihan player
         var gp = document.getElementsByClassName("orang")[0];
-        var p = document.getElementById("player").value;
+        var p = document.querySelectorAll(".tombol-pilih");
+        var layar = document.getElementById("pilihan");
+        
+        for(var i=0; i < p.length; i++) {
+            p[i].onclick = function() {
+                btnVal = this.innerHTML;
 
+                if (btnVal == "Batu") {
+                    gp.src = "img/batu.png";
+                    layar.innerHTML = "Anda memililh BATU";
+                    player = "batu";
+                }
+                else if (btnVal == "Gunting") {
+                    gp.src = "img/gunting.png";
+                    layar.innerHTML = "Anda memilih GUNTING";
+                    player = "gunting"
+                }
+                else {
+                    gp.src = "img/kertas.png";
+                    layar.innerHTML = "Anda memilih KERTAS";
+                    player = "kertas";
+                };
+            };
+        };
+        
         function game() {
-            if (p == "gunting") {
-                gp.src = "img/gunting.png";
-            } else if (p == "batu") {
-                gp.src = "img/batu.png";
-            } else {
-                gp.src = "img/kertas.png";
-            }
-
             // Menangkap pilihan komputer
-            // Membangkitkan bilangan random
+                // Membangkitkan bilangan random
             var gambar = document.getElementsByClassName("komp")[0];
             var comp = Math.random();
 
@@ -109,21 +109,21 @@
 
 
             // Rules
-            if (p == comp) {
+            if (pilihan == comp) {
                 hasil.innerHTML = "Pertarungan SERI!";
-            } else if (p == "batu") {
+            } else if (player == "batu") {
                 if (comp == "gunting") {
                     hasil.innerHTML = "Anda MENANG!!";
                 } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            } else if (p == "gunting") {
+            } else if (player == "gunting") {
                 if (comp == "kertas") {
                     hasil.innerHTML = "Anda MENANG!!";
                 } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            } else if (p == "kertas") {
+            } else if (player == "kertas") {
                 if (comp == "batu") {
                     hasil.innerHTML = "Anda MENANG!!";
                 } else {
