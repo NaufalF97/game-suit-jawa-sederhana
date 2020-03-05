@@ -216,6 +216,20 @@ img {
     .game {
         padding-top: 40px;
     }
+
+    #pilihan {
+        width: 80%;
+    }
+
+    #batu, #gunting, #kertas {
+        width: 80px;
+        height: 30px;
+        font-size: 1.3em;
+    }
+
+    #batu:hover, #gunting:hover, #kertas:hover {
+        font-size: 1.4em;
+    }
 }
 
 @media (max-width: 580px) {
