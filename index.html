@@ -19,8 +19,7 @@
 
         <div class="game">
             <div class="wrap-tentukan">
-                <p id="tentukan">Pilih!</p>
-                <div id="pilihan"></div>
+                <div id="pilihan">Pilih!</div>
                 <br>
             </div>
 
@@ -123,17 +122,13 @@
                 } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            } else if (player == "kertas") {
+            } else {
                 if (comp == "batu") {
                     hasil.innerHTML = "Anda MENANG!!";
                 } else {
                     hasil.innerHTML = "Anda KALAH!!";
                 }
-            } else {
-                alert("ISI YANG BENER WOI! (Sesuai opsi. Huruf kecil semua)");
-                gp.src = "img/tapi_boong.jpg";
-                gambar.src = "img/tapi_boong.jpg";
-            }
+            } 
         }
 
         //Tampilkan hasilnya
