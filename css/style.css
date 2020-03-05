@@ -43,15 +43,48 @@ font-family: 'roboto';
     padding: 2%;
 }
 
-label {
-    font-size: 1.5em;
-    display: inline-block;
-    color: #000000;
-    text-shadow: 1px 1px 1px #000000;
+.wrap-tentukan {
+    margin-top: -20px;
 }
 
-#player {
-    margin-bottom: 2%;
+#tentukan {
+    color: #000000;
+    text-shadow: 1px 1px 1px #000000;
+    font-size: 2em;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#pilihan {
+    display: inline-block;
+    width: 20%;
+    height: 40px;
+    background: #00000060;
+    box-shadow: 1px 1px 5px red;
+    border: solid 3px #000000;
+}
+
+.button-pilihan {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+#batu,
+#gunting,
+#kertas {
+    width: 100px;
+    height: 40px;
+    padding: 1px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#batu:hover, #gunting:hover, #kertas:hover {
+    font-size: 1.6em;
+    color: red;
+    box-shadow: 1px 1px 5px red;
 }
 
 .container {
@@ -159,6 +192,7 @@ img {
 .click:hover {
     font-size: 1.2em;
     color: red;
+    box-shadow: 1px 1px 5px red;
 }
 
 @media (max-width: 770px) {
@@ -172,10 +206,6 @@ img {
 
     .judul a:hover {
         font-size: 4.5em;
-    }
-
-    #player {
-        margin-bottom: 30px;
     }
 
     .comp-side {

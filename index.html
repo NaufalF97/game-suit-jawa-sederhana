@@ -18,11 +18,20 @@
         </div>
 
         <div class="game">
-            <label for="player">Isikan pilihanmu!</label>
+            <div class="wrap-tentukan">
+                <p id="tentukan">Pilih!</p>
+                <div id="pilihan"></div>
+                <br>
+            </div>
 
-            <input type="text" id="player" placeholder="gunting, batu, kertas">
+            <div class="button-pilihan">
+                <button type="button" id="batu">Batu</button>
+                <button type="button" id="gunting">Gunting</button>
+                <button type="button" id="kertas">Kertas</button>
+            </div>
+            <!-- <input type="text" id="player" placeholder="gunting, batu, kertas"> -->
 
-            <p class="refresh">Refresh, Lalu <button onclick="game()" class="click">Click!</button> Untuk Bermain!</p>
+            <p class="refresh"><button onclick="game()" class="click">Click!</button> Untuk Bermain!</p>
 
             <div class="container">
                 <div id="hasil">Arena Pertarungan</div>
