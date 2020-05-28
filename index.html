@@ -62,7 +62,6 @@
     <script src="bootstrap.min.js"></script>
     <script>
         let hasil = document.getElementById("hasil");
-        let gambarKomp = document.getElementsByClassName("komp")[0];
         // Menangkap pilihan player
         let gp = document.getElementsByClassName("orang")[0];
         let p = document.querySelectorAll(".tombol-pilih");
@@ -91,6 +90,7 @@
         };
 
         // Function mengacak gambar komputer
+        let gambarKomp = document.getElementsByClassName("komp")[0];
         function putar() {
             const gambar = ['batu', 'gunting', 'kertas'];
             let i = 0;
