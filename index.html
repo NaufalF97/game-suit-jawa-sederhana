@@ -27,7 +27,7 @@
                 <button type="button" id="batu" class="tombol-pilih">Batu</button>
                 <button type="button" id="gunting" class="tombol-pilih">Gunting</button>
                 <button type="button" id="kertas" class="tombol-pilih">Kertas</button>
-                <button onclick="game()" class="click">Main!</button>
+                <button class="click">Main!</button>
             </div>
 
             <div class="container">
@@ -53,7 +53,7 @@
                 </div>
                 <br>
 
-                <button id="lagi" onclick="document.location.reload(true)">RESET</button>
+                <button id="lagi">RESET</button>
             </div>
         </div>
     </div>
@@ -61,13 +61,13 @@
     <script src="jquery-3.4.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script>
-        var hasil = document.getElementById("hasil");
+        let hasil = document.getElementById("hasil");
         // Menangkap pilihan player
-        var gp = document.getElementsByClassName("orang")[0];
-        var p = document.querySelectorAll(".tombol-pilih");
-        var layar = document.getElementById("pilihan");
+        let gp = document.getElementsByClassName("orang")[0];
+        let p = document.querySelectorAll(".tombol-pilih");
+        let layar = document.getElementById("pilihan");
         
-        for(var i=0; i < p.length; i++) {
+        for(let i=0; i < p.length; i++) {
             p[i].onclick = function() {
                 btnVal = this.innerHTML;
 
@@ -92,8 +92,8 @@
         function game() {
             // Menangkap pilihan komputer
                 // Membangkitkan bilangan random
-            var gambar = document.getElementsByClassName("komp")[0];
-            var comp = Math.random();
+            let gambar = document.getElementsByClassName("komp")[0];
+            let comp = Math.random();
 
             if (comp < 0.34) {
                 comp = "batu";
@@ -132,6 +132,16 @@
         }
 
         //Tampilkan hasilnya
+        const tombolPlay = document.querySelector('.button-pilihan .click');
+        tombolPlay.addEventListener('click', function() {
+            game();
+        });
+
+        // Reset Button
+        const resetBtn = document.getElementById('lagi');
+        resetBtn.addEventListener('click', function() {
+            document.location.reload(true);
+        });
     </script>
 </body>
 
