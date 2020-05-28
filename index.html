@@ -62,6 +62,7 @@
     <script src="bootstrap.min.js"></script>
     <script>
         let hasil = document.getElementById("hasil");
+        let gambarKomp = document.getElementsByClassName("komp")[0];
         // Menangkap pilihan player
         let gp = document.getElementsByClassName("orang")[0];
         let p = document.querySelectorAll(".tombol-pilih");
@@ -88,47 +89,65 @@
                 };
             };
         };
+
+        // Function mengacak gambar komputer
+        function putar() {
+            const gambar = ['batu', 'gunting', 'kertas'];
+            let i = 0;
+            const waktuAwal = new Date().getTime(); 
+            setInterval(function() {
+                if(new Date().getTime() - waktuAwal > 1000) {
+                    clearInterval;
+                    return;
+                }
+                gambarKomp.setAttribute('src', 'img/' + gambar[i++] + '.png');
+                if(i == gambar.length) i = 0;
+            }, 90);
+        }
         
         function game() {
-            // Menangkap pilihan komputer
-                // Membangkitkan bilangan random
-            let gambar = document.getElementsByClassName("komp")[0];
-            let comp = Math.random();
+            // Jalankan fungsi putar
+            putar();
+            // Tunggu sampai fungsi putar selesai, lalu jalankan:
+            setTimeout(function() {
+                // Menangkap pilihan komputer
+                    // Membangkitkan bilangan random
+                let comp = Math.random();
 
-            if (comp < 0.34) {
-                comp = "batu";
-                gambar.src = "img/batu.png";
-            } else if (comp >= 0.34 && comp < 0.67) {
-                comp = "gunting";
-                gambar.src = "img/gunting.png";
-            } else {
-                comp = "kertas";
-                gambar.src = "img/kertas.png";
-            }
+                if (comp < 0.34) {
+                    comp = "batu";
+                    gambarKomp.src = "img/batu.png";
+                } else if (comp >= 0.34 && comp < 0.67) {
+                    comp = "gunting";
+                    gambarKomp.src = "img/gunting.png";
+                } else {
+                    comp = "kertas";
+                    gambarKomp.src = "img/kertas.png";
+                }
 
-
-            // Rules
-            if (player == comp) {
-                hasil.innerHTML = "Pertarungan SERI!";
-            } else if (player == "batu") {
-                if (comp == "gunting") {
-                    hasil.innerHTML = "Anda MENANG!!";
+                // Rules
+                if (player == comp) {
+                    hasil.innerHTML = "Pertarungan SERI!";
+                } else if (player == "batu") {
+                    if (comp == "gunting") {
+                        hasil.innerHTML = "Anda MENANG!!";
+                    } else {
+                        hasil.innerHTML = "Anda KALAH!!";
+                    }
+                } else if (player == "gunting") {
+                    if (comp == "kertas") {
+                        hasil.innerHTML = "Anda MENANG!!";
+                    } else {
+                        hasil.innerHTML = "Anda KALAH!!";
+                    }
                 } else {
-                    hasil.innerHTML = "Anda KALAH!!";
+                    if (comp == "batu") {
+                        hasil.innerHTML = "Anda MENANG!!";
+                    } else {
+                        hasil.innerHTML = "Anda KALAH!!";
+                    }
                 }
-            } else if (player == "gunting") {
-                if (comp == "kertas") {
-                    hasil.innerHTML = "Anda MENANG!!";
-                } else {
-                    hasil.innerHTML = "Anda KALAH!!";
-                }
-            } else {
-                if (comp == "batu") {
-                    hasil.innerHTML = "Anda MENANG!!";
-                } else {
-                    hasil.innerHTML = "Anda KALAH!!";
-                }
-            } 
+            }, 1000);    
         }
 
         //Tampilkan hasilnya
