@@ -205,13 +205,11 @@ img {
     box-shadow: 1px 1px 5px red;
 }
 
-.skorPlayer {
+.skorPlayer, .skorKomp, .angkaSkorKompRsp, .angkaSkorPlayerRsp {
     display: none;
 }
 
-.skorKomp {
-    display: none;
-}
+
 
 @media (min-width: 1920px) {
     .judul {
@@ -312,12 +310,19 @@ img {
 
     .skorPlayer {
         display: inline-block;
-        margin: 5px 50px 20px 50px !important;
+        margin: 5px 0px 20px 50px !important;
     }
 
     .skorKomp {
         display: inline-block;
-        margin: 5px 50px 20px 50px!important;
+        margin: 5px 0px 20px 50px!important;
+    }
+
+    .angkaSkorPlayerRsp,
+    .angkaSkorKompRsp {
+        display: inline;
+        margin-left: 0px !important;
+        margin-right: 30px !important;
     }
 }
 
@@ -359,11 +364,15 @@ img {
 
 @media (max-width: 680px) {
     .skorPlayer {
-        margin: 5px 50px 5px 50px !important;
+        margin: 5px auto 5px auto !important;
     }
 
     .skorKomp {
-        margin: 5px 50px 20px 50px!important;
+        margin: 5px auto 20px auto!important;
+    }
+
+    .angkaSkorKompRsp, .angkaSkorPlayerRsp {
+        margin-right: 20px !important;
     }
 }
 
@@ -419,6 +428,13 @@ img {
 
     .comp-side p {
         font-size: 1.2em;
+    }
+
+    .angkaSkorPlayerRsp,
+    .angkaSkorKompRsp {
+        display: inline;
+        margin-left: 0px !important;
+        margin-right: 10px !important;
     }
 
     #batu, #gunting, #kertas {
@@ -507,6 +523,16 @@ img {
 
     .container #arena {
         font-size: 30px;
+    }
+
+    .skorPlayer {
+        display: inline-block;
+        margin: 5px 0px 20px 2px !important;
+    }
+
+    .skorKomp {
+        display: inline-block;
+        margin: 5px 0px 20px 2px!important;
     }
 
     #batu:hover, #gunting:hover, #kertas:hover {
