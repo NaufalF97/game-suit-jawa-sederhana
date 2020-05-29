@@ -137,7 +137,7 @@ img {
     max-height: 70%;
 }
 
-#hasil {
+#arena {
     margin-bottom: 0px;
     margin-top: 3%;
     text-align: center;
@@ -272,7 +272,7 @@ img {
         width: 90% !important;
     }
 
-    #hasil {
+    #arena {
         font-size: 80px;
     }
 
@@ -376,7 +376,7 @@ img {
         font-size: 2.8em;
     }
 
-    #hasil {
+    #arena {
         font-size: 3em;
     }
 
@@ -413,7 +413,7 @@ img {
         padding-top: 25px;
     }
 
-    #hasil {
+    #arena {
         font-size: 35px;
     }
 
@@ -505,7 +505,7 @@ img {
         padding-top: 10px;
     }
 
-    .container #hasil {
+    .container #arena {
         font-size: 30px;
     }
 
