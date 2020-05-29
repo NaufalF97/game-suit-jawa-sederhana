@@ -218,11 +218,11 @@ img {
     }
 
     .judul h1 {
-        font-size: 130px;
+        font-size: 110px;
     }
 
     .judul .sub-judul {
-        font-size: 90px;
+        font-size: 80px;
     }
 
     .game {
@@ -230,19 +230,19 @@ img {
     }
 
     #pilihan {
-        height: 60px;
-        line-height: 60px;
-        font-size: 40px;
-        margin-bottom: 30px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 30px;
+        margin-bottom: 20px;
     }
 
     #batu,
     #gunting,
     #kertas {
         width: 150px;
-        height: 60px;
+        height: 50px;
         padding: 1px;
-        font-size: 35px;
+        font-size: 30px;
     }
 
     #batu:hover, #gunting:hover, #kertas:hover {
@@ -264,7 +264,7 @@ img {
     }
 
     .container {
-        padding: 70px 50px;
+        padding: 30px 50px;
         margin-top: 40px;
         margin-bottom: -20px;
         width: 90% !important;
