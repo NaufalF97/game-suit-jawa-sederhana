@@ -72,15 +72,15 @@
             let angkaPlayer = 0;
         // Menambahkan element skor untuk tampilan mobile
             // Skor komputer
-            const skorKompRsp = document.createElement('p');
-            const textSkorKompRsp = document.createTextNode(angkaKomp);
+            let skorKompRsp = document.createElement('p');
+            let textSkorKompRsp = document.createTextNode(angkaKomp);
             skorKompRsp.appendChild(textSkorKompRsp);
             document.querySelector('.comp-side').insertBefore(skorKompRsp, document.querySelector('.comp-side #skor'));
             skorKompRsp.setAttribute('class', 'angkaSkorKompRsp');
         
             // Skor Player
-            const skorPlayerRsp = document.createElement('p');
-            const textSkorPlayer = document.createTextNode(angkaPlayer);
+            let skorPlayerRsp = document.createElement('p');
+            let textSkorPlayer = document.createTextNode(angkaPlayer);
             skorPlayerRsp.appendChild(textSkorPlayer);
             document.querySelector('.comp-side').insertBefore(skorPlayerRsp, document.querySelector('.comp-side .skorKomp'));
             skorPlayerRsp.setAttribute('class', 'angkaSkorPlayerRsp');
@@ -166,13 +166,13 @@
                     alert('Pertarungan Seri!');
                 } else if (player == "batu") {
                     if (comp == "gunting") {    //player menang
-                        angkaPlayer += 1;
+                        angkaPlayer ++;
                         skorPlayer.innerHTML = angkaPlayer;
                         skorPlayerRsp.innerHTML = angkaPlayer;
                     } else {                    //player kalah
-                        angkaKomp += 1;
+                        angkaKomp ++;
                         skorKomp.innerHTML = angkaKomp;
-                        skorKompRsp.innerHtml = angkaKomp;
+                        skorKompRsp.innerHTML = angkaKomp;
                     }
                 } else if (player == "gunting") {
                     if (comp == "kertas") {     //player menang
