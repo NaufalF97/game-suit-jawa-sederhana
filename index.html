@@ -35,7 +35,8 @@
                 <div class="row">
                     <div class="col-md-4 col-xs 12">
                         <div class="comp-side">
-                            <p>Komputer</p>
+                            <p id="skor">0</p>
+                            <p id="judulKomp">Komputer</p>
                             <img src="img/computer.png" class="komp" alt="">
                         </div>
                     </div>
@@ -46,7 +47,8 @@
                     </div>
                     <div class="col-md-4 hidden-sm hidden-xs">
                         <div class="player-side">
-                            <p>Anda</p>
+                            <p id="skor">0</p>
+                            <p id="judulPlayer">Anda</p>
                             <img src="img/orang.jpg" class="orang" alt="">
                         </div>
                     </div>
@@ -61,27 +63,44 @@
     <script src="jquery-3.4.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script>
+        // Menambahkan element saat responsive
+            // Skor komputer
+            let angkaKomp = 0;
+            const skorKomp = document.createElement('p');
+            const textSkorKomp = document.createTextNode('Skor Komputer: ' + angkaKomp);
+            skorKomp.appendChild(textSkorKomp);
+            const judulKomp = document.getElementById('judulKomp');
+            document.querySelector('.comp-side').insertBefore(skorKomp, judulKomp);
+            skorKomp.setAttribute('class', 'skorKomp');
+
+            // Skor Player
+            let angkaPlayer = 0;
+            const skorPlayer = document.createElement('p');
+            const textSkorPlayer = document.createTextNode('Skor Anda: ' + angkaPlayer);
+            skorPlayer.appendChild(textSkorPlayer);
+            document.querySelector('.comp-side').insertBefore(skorPlayer, skorKomp);
+            skorPlayer.setAttribute('class', 'skorPlayer');
+
+
         let hasil = document.getElementById("hasil");
         // Menangkap pilihan player
         let gp = document.getElementsByClassName("orang")[0];
         let p = document.querySelectorAll(".tombol-pilih");
         let layar = document.getElementById("pilihan");
-        
-        for(let i=0; i < p.length; i++) {
-            p[i].onclick = function() {
+
+        for (let i = 0; i < p.length; i++) {
+            p[i].onclick = function () {
                 btnVal = this.innerHTML;
 
                 if (btnVal == "Batu") {
                     gp.src = "img/batu.png";
                     layar.innerHTML = "Anda memililh BATU";
                     player = "batu";
-                }
-                else if (btnVal == "Gunting") {
+                } else if (btnVal == "Gunting") {
                     gp.src = "img/gunting.png";
                     layar.innerHTML = "Anda memilih GUNTING";
                     player = "gunting"
-                }
-                else {
+                } else {
                     gp.src = "img/kertas.png";
                     layar.innerHTML = "Anda memilih KERTAS";
                     player = "kertas";
@@ -91,27 +110,28 @@
 
         // Function mengacak gambar komputer
         let gambarKomp = document.getElementsByClassName("komp")[0];
+
         function putar() {
             const gambar = ['batu', 'gunting', 'kertas'];
             let i = 0;
-            const waktuAwal = new Date().getTime(); 
-            setInterval(function() {
-                if(new Date().getTime() - waktuAwal > 1000) {
+            const waktuAwal = new Date().getTime();
+            setInterval(function () {
+                if (new Date().getTime() - waktuAwal > 1000) {
                     clearInterval;
                     return;
                 }
                 gambarKomp.setAttribute('src', 'img/' + gambar[i++] + '.png');
-                if(i == gambar.length) i = 0;
+                if (i == gambar.length) i = 0;
             }, 90);
         }
-        
+
         function game() {
             // Jalankan fungsi putar
             putar();
             // Tunggu sampai fungsi putar selesai, lalu jalankan:
-            setTimeout(function() {
+            setTimeout(function () {
                 // Menangkap pilihan komputer
-                    // Membangkitkan bilangan random
+                // Membangkitkan bilangan random
                 let comp = Math.random();
 
                 if (comp < 0.34) {
@@ -147,18 +167,18 @@
                         hasil.innerHTML = "Anda KALAH!!";
                     }
                 }
-            }, 1000);    
+            }, 1000);
         }
 
         //Tampilkan hasilnya
         const tombolPlay = document.querySelector('.button-pilihan .click');
-        tombolPlay.addEventListener('click', function() {
+        tombolPlay.addEventListener('click', function () {
             game();
         });
 
         // Reset Button
         const resetBtn = document.getElementById('lagi');
-        resetBtn.addEventListener('click', function() {
+        resetBtn.addEventListener('click', function () {
             document.location.reload(true);
         });
     </script>

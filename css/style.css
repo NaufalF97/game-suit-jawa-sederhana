@@ -12,9 +12,13 @@ font-family: 'roboto';
 .judul {
     background: url(../img/background.png);
     background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
     margin-top: 0;
-    padding: 5%;
+    padding: 9%;
+    height: 655px;
+    box-sizing: border-box;
 }
 .judul h1{
     font-size: 6em;
@@ -41,6 +45,11 @@ font-family: 'roboto';
     text-align: left;
     margin-top: 3%;
     padding: 2% 2% 0 2%;
+}
+
+.game .container #skor {
+    font-size: 65px;
+    margin-top: -75px;
 }
 
 .wrap-tentukan {
@@ -95,6 +104,7 @@ font-family: 'roboto';
     background-color: #000000;
     border-radius: 20px 20px 0 0;
     box-shadow: 2px 2px 10px red;
+    padding: 0px;
 }
 
 img {
@@ -128,7 +138,7 @@ img {
 }
 
 #hasil {
-    margin-bottom: 1%;
+    margin-bottom: 0px;
     margin-top: 3%;
     text-align: center;
     font-size: 4em;
@@ -187,13 +197,128 @@ img {
     background-color: black;
     font-weight: bold;
     margin-left: 20px;
-    
 }
 
 .click:hover {
     font-size: 2em;
     color: red;
     box-shadow: 1px 1px 5px red;
+}
+
+.skorPlayer {
+    display: none;
+}
+
+.skorKomp {
+    display: none;
+}
+
+@media (min-width: 1920px) {
+    .judul {
+        height: 1080px;
+        padding-top: 300px;
+    }
+
+    .judul h1 {
+        font-size: 130px;
+    }
+
+    .judul .sub-judul {
+        font-size: 90px;
+    }
+
+    .game {
+        padding: 20px 100px;
+    }
+
+    #pilihan {
+        height: 60px;
+        line-height: 60px;
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    #batu,
+    #gunting,
+    #kertas {
+        width: 150px;
+        height: 60px;
+        padding: 1px;
+        font-size: 35px;
+    }
+
+    #batu:hover, #gunting:hover, #kertas:hover {
+        font-size: 38px;
+        color: red;
+        box-shadow: 1px 1px 5px red;
+    }
+    
+    .click {
+        font-size: 40px;
+    }
+
+    .click:hover {
+        font-size: 45px;
+    }
+
+    .button-pilihan {
+        margin-bottom: 50px;
+    }
+
+    .container {
+        padding: 70px 50px;
+        margin-top: 40px;
+        margin-bottom: -20px;
+        width: 90% !important;
+    }
+
+    #hasil {
+        font-size: 80px;
+    }
+
+    .komp, .orang {
+        width: 350px;
+        height: 350px;
+    }
+
+    #lagi {
+        font-size: 40px;
+    }
+    
+    #lagi:hover {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .judul {
+        padding-top: 150px;
+    }
+
+    .container {
+        padding-bottom: 85px;
+    }
+}
+
+@media (max-width: 993px) {
+    .container .comp-side #skor {
+        display: none;
+    }
+
+    .komp {
+        width: 200px;
+        height: 200px;
+    }
+
+    .skorPlayer {
+        display: inline-block;
+        margin: 5px 50px 20px 50px !important;
+    }
+
+    .skorKomp {
+        display: inline-block;
+        margin: 5px 50px 20px 50px!important;
+    }
 }
 
 @media (max-width: 770px) {
@@ -232,6 +357,16 @@ img {
     }
 }
 
+@media (max-width: 680px) {
+    .skorPlayer {
+        margin: 5px 50px 5px 50px !important;
+    }
+
+    .skorKomp {
+        margin: 5px 50px 20px 50px!important;
+    }
+}
+
 @media (max-width: 580px) {
     .judul h1 {
         font-size: 4em;
@@ -251,24 +386,35 @@ img {
 }
 
 @media (max-width: 415px) {
+    .judul {
+        height: 847px;
+        padding: 250px 10px;
+    }
+
     .judul h1 {
-        font-size: 2.8em;
+        font-size: 50px;
     }
 
     .judul a {
-        font-size: 1.8em;
+        font-size: 35px;
     }
 
     .judul a:hover {
         font-size: 1.9em;
     }
 
+    .container {
+        margin-top: 40px;
+        padding-bottom: 85px;
+        padding-top: 85px;
+    }
+
     .game {
-        padding-top: 15px;
+        padding-top: 25px;
     }
 
     #hasil {
-        font-size: 2.8em;
+        font-size: 35px;
     }
 
     .comp-side p {
@@ -280,6 +426,7 @@ img {
     }
 
     #pilihan {
+        margin-top: 50px;
         width: 75%;
     }
 
@@ -288,15 +435,78 @@ img {
     }
 }
 
+@media (max-width: 376px) {
+    .judul {
+        padding-top: 220px;
+    }
+
+    .judul h1 {
+        font-size: 40px;
+    }
+
+    #pilihan {
+        margin-bottom: 15px;
+    }
+    
+    .container {
+        margin-top: 10px;
+        padding-top: 20px;
+        padding-bottom: 45px;
+    }
+}
+
+@media (max-width: 361px) {
+    .judul {
+        padding-top: 200px;
+    }
+
+    #pilihan {
+        margin-top: 10px;
+        margin-bottom: -5px;
+    }
+
+    .click {
+        font-size: 25px;
+    }
+
+    .container {
+        margin-top: 0px;
+        padding-bottom: 40px;
+    }
+}
+
 @media (max-width: 325px) {
+    .judul {
+        padding-top: 150px;
+        height: 580px;
+    }
+
+    .judul h1 {
+        font-size: 35px;
+    }
+
+    .judul .sub-judul {
+        font-size: 30px;
+    }
+
     #pilihan {
         font-size: 15px;
     }
 
     #batu, #gunting, #kertas {
         width: 70px;
-        height: 30px;
+        height: 25px;
         font-size: 1.1em;
+    }
+
+    .container {
+        margin-top: -20px;
+        padding-bottom: 5px;
+        padding-top: 10px;
+    }
+
+    .container #hasil {
+        font-size: 30px;
     }
 
     #batu:hover, #gunting:hover, #kertas:hover {
