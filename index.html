@@ -137,7 +137,7 @@
                 gambarKomp.setAttribute('src', 'img/' + gambar[i++] + '.png');
                 if (i == gambar.length) i = 0;
             }, 90);
-        }
+        };
 
 
         // Function menjalankan program
@@ -159,7 +159,7 @@
                     } else {
                         comp = "kertas";
                         gambarKomp.src = "img/kertas.png";
-                    }
+                    };
 
                 // Rules
                 if (player == comp) {
@@ -194,12 +194,27 @@
                         skorKomp.innerHTML = angkaKomp;
                         skorKompRsp.innerHTML = angkaKomp;
                     }
+                };
+
+                // Skor Maks, dan alert2 pemberitahuannya
+                if ((skorPlayer.innerHTML == 4 || skorPlayerRsp.innerHTML == 4) && (skorKomp.innerHTML < 4 && skorKompRsp.innerHTML < 4)) {
+                    alert("TINGGAL SATU POIN LAGI ANDA MENANG!!");
+                } else if ((skorKomp.innerHTML == 4 || skorKompRsp.innerHTML == 4) && (skorPlayer.innerHTML < 4 && skorPlayerRsp.innerHTML < 4)) {
+                    alert("TINGGAL SATU POIN LAGI KOMPUTER MENANG");
+                } else if (skorPlayer.innerHTML == 5 || skorPlayerRsp.innerHTML == 5) {
+                    alert("Selamat!! anda MENANG!!!");
+                    document.location.reload(true);
+                } else if (skorKomp.innerHTML == 5 || skorKompRsp.innerHTML == 5) {
+                    alert("Anda KALAH!!");
+                    document.location.reload(true);
+                } else if ((skorPlayer.innerHTML == 4 && skorKomp.innerHTML == 4) || (skorPlayerRsp.innerHTML == 4 && skorKompRsp.innerHTML == 4 )) {
+                    alert("SATU POIN PENENTUAN PEMENANG!!");
                 }
             }, 1000);
-        }
+        };
 
 
-        //Tampilkan hasilnya
+        //Tampilkan hasilnya/ panggil fungsi menjalankan game nya
         const tombolPlay = document.querySelector('.button-pilihan .click');
         tombolPlay.addEventListener('click', function () {
             game();
